@@ -174,7 +174,7 @@ class CategoryController
         $decodedContent = json_decode($content, true);
 
         if (null === $decodedContent) {
-            throw new BadRequestHttpException('JSON is not valid.');
+            throw new BadRequestHttpException('Invalid json message received');
         }
 
         return $decodedContent;

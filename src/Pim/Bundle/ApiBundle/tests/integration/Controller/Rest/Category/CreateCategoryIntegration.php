@@ -88,15 +88,32 @@ JSON;
         $this->assertSame($categoryStandard, $normalizer->normalize($category));
     }
 
+    public function testResponseWhenContentIsEmpty()
+    {
+        $client = $this->createAuthentifiedClient();
+
+        $data = '{';
+
+        $expectedContent = [
+            'code'    => 400,
+            'message' => 'Invalid json message received'
+        ];
+
+        $client->request('POST', 'api/rest/v1/categories', [], [], [], $data);
+        $response = $client->getResponse();
+        $this->assertSame(Response::HTTP_BAD_REQUEST, $response->getStatusCode());
+        $this->assertSame($expectedContent, json_decode($response->getContent(), true));
+    }
+
     public function testResponseWhenContentIsNotValid()
     {
         $client = $this->createAuthentifiedClient();
 
-        $data = '';
+        $data = '{';
 
         $expectedContent = [
             'code'    => 400,
-            'message' => 'JSON is not valid.',
+            'message' => 'Invalid json message received',
         ];
 
         $client->request('POST', 'api/rest/v1/categories', [], [], [], $data);
