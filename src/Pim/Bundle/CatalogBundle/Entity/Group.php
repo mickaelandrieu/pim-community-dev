@@ -254,14 +254,6 @@ class Group implements GroupInterface
     /**
      * {@inheritdoc}
      */
-    public function addAttribute(AttributeInterface $attribute)
-    {
-        return $this->addAxisAttribute($attribute);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function removeAxisAttribute(AttributeInterface $attribute)
     {
         $this->attributes->removeElement($attribute);
@@ -272,38 +264,9 @@ class Group implements GroupInterface
     /**
      * {@inheritdoc}
      */
-    public function removeAttribute(AttributeInterface $attribute)
-    {
-        return $this->removeAxisAttribute($attribute);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getAxisAttributes()
     {
         return $this->attributes;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAttributes()
-    {
-        return $this->getAxisAttributes();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAttributeIds()
-    {
-        return array_map(
-            function ($attribute) {
-                return $attribute->getId();
-            },
-            $this->getAttributes()->toArray()
-        );
     }
 
     /**
@@ -321,14 +284,6 @@ class Group implements GroupInterface
         }
 
         return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setAttributes(array $attributes = [])
-    {
-        return $this->setAxisAttributes($attributes);
     }
 
     /**

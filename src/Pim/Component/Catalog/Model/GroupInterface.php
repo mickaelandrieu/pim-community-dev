@@ -110,59 +110,6 @@ interface GroupInterface extends
     public function setProducts(array $products);
 
     /**
-     * Add attribute
-     *
-     * @deprecated will be removed in 1.7, use addAxisAttribute()
-     *
-     * @param AttributeInterface $attribute
-     *
-     * @return GroupInterface
-     */
-    public function addAttribute(AttributeInterface $attribute);
-
-    /**
-     * Remove attribute
-     *
-     * @deprecated will be removed in 1.7, use removeAxisAttribute()
-     *
-     * @param AttributeInterface $attribute
-     *
-     * @throws \InvalidArgumentException
-     *
-     * @return GroupInterface
-     */
-    public function removeAttribute(AttributeInterface $attribute);
-
-    /**
-     * Get attributes
-     *
-     * @deprecated will be removed in 1.7, use getAxisAttributes()
-     *
-     * @return ArrayCollection
-     */
-    public function getAttributes();
-
-    /**
-     * Setter for attributes property
-     *
-     * @deprecated will be removed in 1.7, use setAxisAttributes()
-     *
-     * @param AttributeInterface[] $attributes
-     *
-     * @return GroupInterface
-     */
-    public function setAttributes(array $attributes = []);
-
-    /**
-     * Get attribute ids
-     *
-     * @deprecated will be removed in 1.7
-     *
-     * @return integer[]
-     */
-    public function getAttributeIds();
-
-    /**
      * Add axis attribute
      *
      * @param AttributeInterface $attribute
