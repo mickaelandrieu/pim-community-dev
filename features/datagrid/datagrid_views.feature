@@ -131,6 +131,10 @@ Feature: Datagrid views
       | Default product grid view | Sneakers only |
     And I press the "Save" button
     Then I should not see the text "There are unsaved changes."
+    When I am on the products page
+    Then I should see the text "Sneakers only"
+    And I should see products purple-sneakers and black-sneakers
+    But I should not see product black-boots
     When I logout
     And I am logged in as "Mary"
     And I am on the products page
