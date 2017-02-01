@@ -1001,7 +1001,11 @@ abstract class AbstractAttribute implements AttributeInterface
      */
     public function isLocaleSpecific()
     {
-        return !empty($this->availableLocales);
+        if ($this->availableLocales->isEmpty()) {
+            return false;
+        } else {
+            return !empty($this->availableLocales);
+        }
     }
 
     /**
