@@ -19,9 +19,6 @@ use Symfony\Component\Filesystem\Filesystem;
  */
 class InstallCommand extends ContainerAwareCommand
 {
-    /** @staticvar string */
-    const APP_NAME = 'Akeneo PIM';
-
     /** @var CommandExecutor */
     protected $commandExecutor;
 
@@ -32,7 +29,7 @@ class InstallCommand extends ContainerAwareCommand
     {
         $this
             ->setName('pim:install')
-            ->setDescription(sprintf('%s Application Installer.', static::APP_NAME))
+            ->setDescription('Akeneo PIM Application Installer.')
             ->addOption('force', null, InputOption::VALUE_NONE, 'Force installation');
     }
 
