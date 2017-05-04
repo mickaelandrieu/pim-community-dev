@@ -2,13 +2,13 @@ version: "2"
 
 services:
     app:
+        build:
+            context: .
+            dockerfile: Dockerfile
         environment:
             PIM_DATABASE_HOST: db
             PIM_DATABASE_PORT: 3306
             PIM_INSTALLER_DATA: PimInstallerBundle:minimal
-        build:
-            context: .
-            dockerfile: Dockerfile
         depends_on:
             - db
         volumes:
